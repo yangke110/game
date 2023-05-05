@@ -5,7 +5,7 @@ reader = easyocr.Reader(['ch_sim'], gpu=True)
 
 
 def get_map_name():
-    img = (2040, 40, 2188, 90)  # 距离左上右下的像素
+    img = (2037, 40, 2181, 87)  # 距离左上右下的像素
     loc_img = ImageGrab.grab(img)
     loc_img.save("../map_name.png")
 
@@ -17,7 +17,7 @@ def get_map_name():
 
 
 def get_map_x():
-    img = (2220, 40, 2288, 90)  # 距离左上右下的像素
+    img = (2222, 41, 2302, 83)  # 距离左上右下的像素
     loc_img = ImageGrab.grab(img)
     loc_img.save("../map_x.png")
 
@@ -29,7 +29,7 @@ def get_map_x():
 
 
 def get_map_y():
-    img = (2320, 40, 2390, 90)  # 距离左上右下的像素
+    img = (2323, 41, 2388, 85)  # 距离左上右下的像素
     loc_img = ImageGrab.grab(img)
     loc_img.save("../map_y.png")
 
@@ -41,7 +41,7 @@ def get_map_y():
 
 
 def get_monsters():
-    img = (1086, 450, 1400, 870)  # 距离左上右下的像素
+    img = (433, 169, 775, 464)  # 距离左上右下的像素
     loc_img = ImageGrab.grab(img)
     loc_img.save("../monsters.png")
 

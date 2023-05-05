@@ -2,6 +2,7 @@ import time
 import pyautogui as pg
 from grab import screen_grab
 from logic import fox_logic
+from logic.idle import idle_resume
 
 action_type = "fox"  # 脚本类型
 
@@ -13,14 +14,21 @@ monsters = ""
 load_duration = 0.2
 
 
-def logic():
+def logic(case: int):
     # focus_on_screen()
     while True:
         load_info()
         print(f"当前人物所在位置 {map_n} {cord_x} : {cord_y}")
         print(f"当前人物附近怪物 {monsters}")
-        do_actions(map_n, cord_x, cord_y, monsters)
-
+        # do_actions(map_n, cord_x, cord_y, monsters)
+        if case == 1:
+            # 狐狸洞
+            do_actions()
+        elif case == 2:
+        # 极乐洞
+            return
+        elif case == 3:
+            idle_resume(map_n, cord_x, cord_y, monsters)
         time.sleep(load_duration)
 
 

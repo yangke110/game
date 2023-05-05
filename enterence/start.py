@@ -9,5 +9,8 @@ if __name__ == '__main__':
     while True:
         if keyboard.is_pressed('F10'):
             print('Started')
-            logic_main.logic()
+            # logic_main.logic(1)
+            print('挂机被拖自动恢复')
+            logic_main.logic(3)
+
  
