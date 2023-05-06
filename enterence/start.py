@@ -9,6 +9,6 @@ if __name__ == '__main__':
             print('Started')
             # logic_main.logic(1)
             print('挂机被拖自动恢复')
-            logic_main.logic(3)
+            logic_main.logic(3,'../config_hm.ini')
 
  

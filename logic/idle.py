@@ -1,5 +1,8 @@
 import pyautogui as pg
 import time
+import configparser
+
+
 
 map_name = 'VIP地图'
 init_x = 158
@@ -13,7 +16,9 @@ return_x = 1
 return_y = 1
 
 
-def idle_resume(map_n, cord_x, cord_y, monsters):
+
+
+def idle_resume(map_n, cord_x, cord_y, monsters,config_path):
     is_out = False
     x_in = True
     # if map_n != map_name:
@@ -35,35 +40,47 @@ def idle_resume(map_n, cord_x, cord_y, monsters):
         is_out = True
 
     if is_out:
-        do_return_to()
+        do_return_to(config_path)
 
 
-def do_return_to():
+def do_return_to(config_path):
+    config = configparser.ConfigParser()
+    config.read(config_path)
     print("尝试退回至挂机点###############")
     time.sleep(3)
     print("关闭挂机超出对话框")
-    pg.moveTo(1275, 927)
+    close_con = config['idle']['close_con']
+    close_con_list = close_con.split(',')
+    pg.moveTo(int(close_con_list[0]), int(close_con_list[1]))
     time.sleep(1)
-    pg.click(1275, 927)
+    pg.click(int(close_con_list[0]), int(close_con_list[1]))
     time.sleep(1)
     print("尝试打开地图")
-    pg.moveTo(2185, 170)
+    open_map = config['idle']['open_map']
+    open_map_list = open_map.split(',')
+    pg.moveTo(int(open_map_list[0]), int(open_map_list[1]))
     time.sleep(1)
-    pg.click(2185, 170)
+    pg.click(int(open_map_list[0]), int(open_map_list[1]))
     time.sleep(1)
     print("尝试点击挂机点")
-    pg.moveTo(899, 532)
+    idle_loc = config['idle']['idle_loc']
+    idle_loc_list = idle_loc.split(',')
+    pg.moveTo(int(idle_loc_list[0]), int(idle_loc_list[1]))
     time.sleep(1)
-    pg.click(899, 532)
+    pg.click(int(idle_loc_list[0]), int(idle_loc_list[1]))
     time.sleep(1)
     print("尝试开始移动")
-    pg.moveTo(2049, 1198)
+    start_move = config['idle']['start_move']
+    start_move_list = start_move.split(',')
+    pg.moveTo(int(start_move_list[0]), int(start_move_list[1]))
     time.sleep(1)
-    pg.click(2049, 1198)
+    pg.click(int(start_move_list[0]), int(start_move_list[1]))
     print("尝试关闭地图")
-    pg.moveTo(2112, 230)
+    close_map = config['idle']['close_map']
+    close_map_list = close_map.split(',')
+    pg.moveTo(int(close_map_list[0]), int(close_map_list[1]))
     time.sleep(1)
-    pg.click(2112, 230)
+    pg.click(int(close_map_list[0]), int(close_map_list[1]))
     time.sleep(10)
     do_auto_idle()
 
