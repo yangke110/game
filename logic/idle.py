@@ -2,8 +2,6 @@ import pyautogui as pg
 import time
 import configparser
 
-
-
 map_name = 'VIP地图'
 init_x = 158
 init_y = 90
@@ -16,9 +14,7 @@ return_x = 1
 return_y = 1
 
 
-
-
-def idle_resume(map_n, cord_x, cord_y, monsters,config_path):
+def idle_resume(map_n, cord_x, cord_y, monsters, config_path):
     is_out = False
     x_in = True
     # if map_n != map_name:

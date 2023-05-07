@@ -5,6 +5,7 @@ import pyautogui as pg
 from grab import screen_grab
 from logic import fox_logic
 from logic.idle import idle_resume
+from logic.jile import jile1
 
 action_type = "fox"  # 脚本类型
 
@@ -32,6 +33,8 @@ def logic(case: int,config_path):
             return
         elif case == 3:
             idle_resume(map_n, cord_x, cord_y, monsters,config_path)
+        elif case == 4:
+            jile1(map_n, cord_x, cord_y, monsters,config_path)
         time.sleep(load_duration)
 
 
